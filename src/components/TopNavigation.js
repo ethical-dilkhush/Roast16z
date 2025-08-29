@@ -1,10 +1,26 @@
 import React from 'react';
+import { useChat } from '../contexts/ChatContext';
 
 const TopNavigation = () => {
+  const { toggleSidebar } = useChat();
   return (
-    <div className="bg-black border-b border-gray-700/50 p-4 transition-colors duration-300">
+    <div className="fixed md:relative top-0 md:top-auto left-0 md:left-auto right-0 md:right-auto z-30 md:z-auto bg-black border-b border-gray-700/50 p-4 transition-colors duration-300">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
+          {/* Mobile Hamburger Menu */}
+          <button 
+            onClick={toggleSidebar}
+            className="md:hidden p-2 text-white hover:bg-gray-800 rounded-lg transition-colors duration-200"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
           <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-500">
             <img 
               src="/roast.jpeg" 
@@ -12,8 +28,8 @@ const TopNavigation = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-xl font-bold text-gray-100 instrument-serif-regular">
+          <div className="flex items-center">
+            <h1 className="text-xl font-bold text-gray-100 instrument-serif-regular leading-none">
               Roast16z
             </h1>
           </div>

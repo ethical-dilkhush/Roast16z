@@ -4,6 +4,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent mobile scrolling issues */
+html, body {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  overflow: hidden;
+}
+
+/* Mobile-specific scrolling for chat area */
+@media screen and (max-width: 767px) {
+  .chat-scrollable {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* Mobile keyboard handling */
+@media screen and (max-width: 768px) {
+  .mobile-keyboard-fix {
+    padding-bottom: env(keyboard-inset-height, 0px);
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

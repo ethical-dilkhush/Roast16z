@@ -43,12 +43,25 @@ const Sidebar = () => {
       />
       
       {/* Sidebar */}
-      <div className={`w-64 bg-black border-r border-gray-700/50 flex flex-col transition-all duration-300 md:translate-x-0 fixed md:relative z-40 h-full ${
+      <div className={`w-64 bg-black border-r border-gray-700/50 flex flex-col transition-all duration-300 md:translate-x-0 fixed md:relative z-50 h-full pt-4 md:pt-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         {/* Sidebar Header */}
-        <div className="p-4 border-b border-gray-700 dark:border-gray-700">
-          <h2 className="text-lg font-semibold text-gray-200 dark:text-gray-200 instrument-serif-regular ml-12 md:ml-0">Chat History</h2>
+        <div className="px-4 py-2 md:p-4 border-gray-700 dark:border-gray-700">
+          <div className="flex items-center justify-between md:justify-start">
+            {/* Close button - only visible on mobile */}
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="md:hidden p-1 text-gray-300 hover:text-white transition-colors duration-200 flex items-center"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2 className="text-lg font-semibold text-gray-200 dark:text-gray-200 instrument-serif-regular md:ml-0 flex items-center">Chat History</h2>
+            {/* Spacer for mobile to center the title */}
+            <div className="w-8 md:hidden"></div>
+          </div>
         </div>
         
         {/* Chat Sessions */}
@@ -103,7 +116,7 @@ const Sidebar = () => {
         </div>
         
         {/* Settings */}
-        <div className="p-4 border-t border-gray-700 dark:border-gray-700">
+        <div className="p-4  border-gray-700 dark:border-gray-700">
           <button 
             onClick={createNewChat}
             className="w-full p-2 text-sm bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 text-white font-medium instrument-serif-regular"

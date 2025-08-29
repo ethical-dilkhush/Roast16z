@@ -15,7 +15,7 @@ const ChatArea = () => {
   }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 overflow-y-auto scrollbar-hide">
+    <div className="fixed md:relative top-20 md:top-auto bottom-24 md:bottom-auto left-0 md:left-auto right-0 md:right-auto z-20 md:z-auto flex-1 md:flex-1 overflow-y-auto scrollbar-hide chat-scrollable">
       <div className="w-full">
         {messages.map((message) => (
           <Message key={message.id} message={message} />

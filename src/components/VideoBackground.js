@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const VideoBackground = () => {
+const VideoBackground = ({ onVideoLoad }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -37,6 +37,9 @@ const VideoBackground = () => {
         }}
         onLoadedData={() => {
           console.log('Video loaded successfully');
+          if (onVideoLoad) {
+            onVideoLoad(true);
+          }
         }}
         onCanPlay={() => {
           console.log('Video can play, attempting to start');
