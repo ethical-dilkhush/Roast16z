@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+.typing-dot {
+  animation: typing 1.4s infinite ease-in-out;
+  background-color: #9CA3AF;
+  border-radius: 50%;
+}
+
+.typing-dot:nth-child(1) { 
+  animation-delay: 0s; 
+}
+
+.typing-dot:nth-child(2) { 
+  animation-delay: 0.2s; 
+}
+
+.typing-dot:nth-child(3) { 
+  animation-delay: 0.4s; 
+}
+
+/* Anime.js Text Animation Styles */
+.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml2-small {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.ml2-small .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+/* Video Background Styles */
+video {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize video performance */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+/* Custom font classes */
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.instrument-serif-regular-italic {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Force message text to be white with custom font */
+.message-text {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  font-family: "Instrument Serif", serif;
+}
+
+.message-text p {
+  color: #FFFFFF !important;
+  font-family: "Instrument Serif", serif;
+}
+
+/* Ensure text doesn't get blurred or change color */
+.chat-message p {
+  color: #FFFFFF !important;
+  font-weight: 500;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+  font-family: "Instrument Serif", serif;
+}
+
